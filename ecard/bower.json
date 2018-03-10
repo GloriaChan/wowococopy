@@ -4,7 +4,8 @@
   "dependencies": {
     "font-awesome": "fontawesome#v4.7.0",
     "bootstrap": "bootstrap4#v4.0.0",
-    "textarea-autosize": "v0.4.2"
+    "textarea-autosize": "v0.4.2",
+    "jquery-validation": "1.17.0"
   },
   "resolutions": {
     "bootstrap": "v4.0.0"
