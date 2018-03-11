@@ -1,3 +1,5 @@
+
+
 body {
     font-family: Arial;
     font-size: 14px;
@@ -21,11 +23,10 @@ a {
 /*MY BOOTSTRAP OVERWRITES*/
 .btn {
 }
+
 .btn-default {
 }
+
 .btn-primary {
     background: #ff0000
 }
-
-
-
