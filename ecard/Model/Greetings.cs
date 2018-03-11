@@ -6,7 +6,7 @@ namespace ecard.Model
     public class Greetings
     {
         [Key]
-        public int? ID { get; set; }
+        public int ID { get; set; }
 
         [DisplayName("Your Friend's Name")]
         [Display(Prompt = "Your Friend's Name")]
