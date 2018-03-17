@@ -43,5 +43,37 @@ namespace ecard.Model
         [Required(ErrorMessage = "Required")]
         [StringLength(100, MinimumLength = 2, ErrorMessage = "You must enter between 2 to 100 characters")]
         public string senderemail { get; set; }
+
+        [DisplayName("Favorite Meal of the Day")]
+        [Display(Prompt = "Breakfast, Brunch, Lunch, Dinner, Dessert")]
+        [Required(ErrorMessage = "Required")]
+        [StringLength(100, MinimumLength = 2, ErrorMessage = "You must enter between 2 to 100 characters")]
+        public string favmeal { get; set; }
+
+        [DisplayName("Favorite Type of Drink")]
+        [Display(Prompt = "Water, Juice, Soda, Alcohol")]
+        [Required(ErrorMessage = "Required")]
+        [StringLength(100, MinimumLength = 2, ErrorMessage = "You must enter between 2 to 100 characters")]
+        public string favdrink { get; set; }
+
+        [DisplayName("Favorite Type of Dessert")]
+        [Display(Prompt = "Pastries, Ice Cream, Cookies")]
+        [Required(ErrorMessage = "Required")]
+        [StringLength(100, MinimumLength = 2, ErrorMessage = "You must enter between 2 to 100 characters")]
+        public string favdessert { get; set; }
+
+        [DisplayName("Favorite Type of Alcohol")]
+        [Display(Prompt = "Shots, Beer, Wine, Mixed Drinks, On the Rocks")]
+        [Required(ErrorMessage = "Required")]
+        [StringLength(100, MinimumLength = 2, ErrorMessage = "You must enter between 2 to 100 characters")]
+        public string favalcohol { get; set; }
+
+
+
+
+
+        public string created { get; set; }
+        public string created_ip { get; set; }
+
     }
 }

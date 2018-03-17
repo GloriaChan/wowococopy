@@ -11,7 +11,7 @@ using Newtonsoft.Json;
 
 namespace ecard.Pages
 {
-    public class FormModel : PageModel
+    public class QuestionnaireModel : PageModel
     {
 
         // WOWOCO: 1
@@ -26,7 +26,7 @@ namespace ecard.Pages
 
 
         // WOWOCO: 4
-        public FormModel(DbBridge DbBridge, IConfiguration Configuration)
+        public QuestionnaireModel(DbBridge DbBridge, IConfiguration Configuration)
         {
             _myDbBridge = DbBridge;
             _myConfiguration = Configuration;
@@ -65,13 +65,13 @@ namespace ecard.Pages
                         _myDbBridge.SaveChanges();
 
                         //REDIRECT to the page with a new operator (name/value pair)
-                        return RedirectToPage("Form", new { id = _myGreetings.ID });
+                        return RedirectToPage("Questionnaire", new { id = _myGreetings.ID });
                     }
 
                     catch (Exception ex)
                     {
                         Console.WriteLine(ex);
-                        return RedirectToPage("Form");
+                        return RedirectToPage("Questionnaire");
                     }
                 }
             }
