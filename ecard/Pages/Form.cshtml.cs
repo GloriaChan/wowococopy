@@ -38,6 +38,7 @@ namespace ecard.Pages
         [HttpPost]
         public async Task<IActionResult> OnPost()
         {
+            //this is making sure that the user to checking the recaptcha or else it won't let them pass 
 
             if (await isValid())
             {
@@ -60,11 +61,11 @@ namespace ecard.Pages
                         _myGreetings.senderemail = _myGreetings.senderemail.ToLowerInvariant();
                         _myGreetings.friendemail = _myGreetings.friendemail.ToUpperInvariant();
 
-                        // DB Related add record
+                        // DB Related add record to model
                         _myDbBridge.Greetings.Add(_myGreetings);
                         _myDbBridge.SaveChanges();
 
-                        //REDIRECT to the page with a new operator (name/value pair)
+                        //REDIRECT to the page with a new operator (name/value pair), could send them anywhere (this one is sending them back to the current Form, this creates a new ID each time someone hits submit
                         return RedirectToPage("Form", new { id = _myGreetings.ID });
                     }
 

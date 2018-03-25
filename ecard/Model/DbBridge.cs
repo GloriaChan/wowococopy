@@ -17,5 +17,7 @@ namespace ecard.Model
         //Table in the Database; each table gets its own line
         //public DbSet<ENTER - TableName - Here> Enter-tablename-here {get;set;}
         public DbSet<Greetings> Greetings { get; set; }
+
+        public DbSet<Favorites> Favorites { get; set; }
     }
 }
