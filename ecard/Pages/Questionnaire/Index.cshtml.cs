@@ -9,9 +9,9 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 
-namespace ecard.Pages
+namespace ecard.Pages.Questionnaire
 {
-    public class QuestionnaireModel : PageModel
+    public class IndexModel : PageModel
     {
 
         // WOWOCO: 1
@@ -26,7 +26,7 @@ namespace ecard.Pages
 
 
         // WOWOCO: 4
-        public QuestionnaireModel(DbBridge DbBridge, IConfiguration Configuration)
+        public IndexModel(DbBridge DbBridge, IConfiguration Configuration)
         {
             _myDbBridge = DbBridge;
             _myConfiguration = Configuration;
@@ -47,31 +47,28 @@ namespace ecard.Pages
                     {
 
                         // DB Related Customized values added with each record
-                        _myFavorites.created = DateTime.Now.ToString();
+                        _myFavorites.created = DateTime.Now.ToString("O");
                         _myFavorites.created_ip = this.HttpContext.Connection.RemoteIpAddress.ToString();
 
                         //Clean Data before insertion 
 
-                        _myFavorites.friendname = _myFavorites.friendname.Replace("i", "3");
-                        _myFavorites.friendname = _myFavorites.friendname.Replace("She said,\"Hello!\"", " & quot;");
-
 
                         //Clean Data before insertion 
                         _myFavorites.senderemail = _myFavorites.senderemail.ToLowerInvariant();
-                        _myFavorites.friendemail = _myFavorites.friendemail.ToUpperInvariant();
+
 
                         // DB Related add record
                         _myDbBridge.Favorites.Add(_myFavorites);
                         _myDbBridge.SaveChanges();
 
                         //REDIRECT to the page with a new operator (name/value pair)
-                        return RedirectToPage("Questionnaire", new { id = _myFavorites.ID });
+                        return RedirectToPage("Index", new { id = _myFavorites.ID });
                     }
 
                     catch (Exception ex)
                     {
                         Console.WriteLine(ex);
-                        return RedirectToPage("Questionnaire");
+                        return RedirectToPage("Index");
                     }
                 }
             }

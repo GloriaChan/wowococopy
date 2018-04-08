@@ -11,6 +11,7 @@
     <title>My ecard website</title>
     <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
     <link href="~/css/pretty.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <h1> Favorite Food and Drinks</h1>
@@ -25,13 +26,13 @@
 
 
 
-            <div class="form-group col-6" act>
+            <div class="form-group col-sm-6" act>
                 <label asp-for="@Model._myFavorites.sendername"></label>
                 <input asp-for="@Model._myFavorites.sendername" type="text" class="form-control" />
                 <span asp-validation-for="@Model._myFavorites.sendername" class="text-danger"></span>
 
             </div>
-            <div class="form-group col-6" act>
+            <div class="form-group col-sm-6" act>
 
                 <label asp-for="@Model._myFavorites.senderemail"></label>
                 <input asp-for="@Model._myFavorites.senderemail" type="email" class="form-control" />
@@ -41,56 +42,79 @@
             @*//HTML: name=""
                 //.NETCORE: asp-for="Model..."*@
 
-            <div class="form-group col-6" act>
+            <div class="form-group col-sm-6" act>
                 <label asp-for="@Model._myFavorites.favmeal"></label>
                 @*<label for="sel1">Favorite Meal of the Day</label>*@
-                <select asp-for="@Model._myFavorites.favmeal" type="text" class="form-control" />
-                <option class="invisible"> Select One:</option>
-                <option>Breakfast</option>
-                <option>Brunch</option>
-                <option>Lunch</option>
-                <option>Dinner</option>
-                <option>Dessert</option>
+                <select asp-for="@Model._myFavorites.favmeal" class="form-control">
+                    <option value="" class="invisible"> Select One:</option>
+                    <option value="Breakfast">Breakfast</option>
+                    <option value="Brunch">Brunch</option>
+                    <option value="Lunch">Lunch</option>
+                    <option value="Dinner">Dinner</option>
+                    <option value="Dessert">Dessert</option>
                 </select>
             </div>
-            <div class="form-group col-6">
+            <div class="form-group col-sm-6">
+                <label asp-for="@Model._myFavorites.favcheese">Should I Add Cheese?</label>
+                <select asp-for="@Model._myFavorites.favcheese" type="text" class="form-control">
+                    <option value="" class="invisible"> Select One:</option>
+                    <option value="Yes">Yes</option>
+                    <option value="Probably">Probably</option>
+                    <option value="Definitely">Definitely</option>
+                    <option value="I think so">I think so</option>
+                    <option value="No">No</option>
+                </select>
+            </div>
+            <div class="form-group col-sm-6">
+                <label asp-for="@Model._myFavorites.favspicy">How Spicy?</label>
+                <select asp-for="@Model._myFavorites.favspicy" type="text" class="form-control">
+                    <option value="" class="invisible"> Select One:</option>
+                    <option value="Mild">Mild</option>
+                    <option value="Medium">Meduim</option>
+                    <option value="Hot">Hot!</option>
+                    <option value="Flaming">Flaming!!</option>
+                    <option value="Lava">Lava!!!</option>
+                </select>
+            </div>
+            <div class="form-group col-sm-6">
                 <label asp-for="@Model._myFavorites.favdessert">Favorite Type of Dessert</label>
-                <select asp-for="@Model._myFavorites.favdessert" type="text" class="form-control" />
-                <option class="invisible"> Select One:</option>
-                <option>Pastries</option>
-                <option>Ice Cream</option>
-                <option>Cookies</option>
+                <select asp-for="@Model._myFavorites.favdessert" type="text" class="form-control">
+                    <option value="" class="invisible"> Select One:</option>
+                    <option value="Pastries">Pastries</option>
+                    <option value="Ice Cream">Ice Cream</option>
+                    <option value="Cookies">Cookies</option>
                 </select>
             </div>
-            <div class="form-group col-6">
+            <div class="form-group col-sm-6">
                 <label asp-for="@Model._myFavorites.favdrink">Favorite Type of Drink</label>
-                <select asp-for="@Model._myFavorites.favdrink" type="text" class="form-control" />
-                <option class="invisible"> Select One:</option>
-                <option>Water</option>
-                <option>Juice</option>
-                <option>Soda</option>
-                <option>Alcohol</option>
+                <select asp-for="@Model._myFavorites.favdrink" type="text" class="form-control">
+                    <option value="" class="invisible"> Select One:</option>
+                    <option value="Water">Water</option>
+                    <option value="Juice">Juice</option>
+                    <option value="Soda">Soda</option>
+                    <option value="Alcohol">Alcohol</option>
                 </select>
             </div>
-            <div class="form-group col-6">
+            <div class="form-group col-sm-6">
                 <label asp-for="@Model._myFavorites.favalcohol">Favorite Type of Alcohol</label>
-                <select asp-for="@Model._myFavorites.favalcohol" type="text" class="form-control" />
-                <option class="invisible"> Select One:</option>
-                <option>Shots! Shots! Shots!</option>
-                <option>Beer</option>
-                <option>Wine</option>
-                <option>Mixed Drinks</option>
-                <option>On the Rocks</option>
+                <select asp-for="@Model._myFavorites.favalcohol" type="text" class="form-control">
+                    <option value="" class="invisible"> Select One:</option>
+                    <option value="Shots">Shots! Shots! Shots!</option>
+                    <option value="Beer">Beer</option>
+                    <option value="Wine">Wine</option>
+                    <option value="MD">Mixed Drinks</option>
+                    <option value="Rocks">On the Rocks</option>
                 </select>
             </div>
+
         </div>
 
 
         <div class="row">
-            <div class="form-group col-10">
+            <div class="form-group col-sm-10">
                 <div class="g-recaptcha float-right" data-sitekey="6Ldj00sUAAAAAGowEykPZ6AZvDcLrMiD950J8sj6"></div>
             </div>
-            <div class="form-group col-2">
+            <div class="form-group col-sm-2">
                 <input type="submit" value="Submit" class="btn btn-primary" />
 
             </div>

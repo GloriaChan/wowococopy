@@ -47,18 +47,15 @@ namespace ecard.Pages
                     {
 
                         // DB Related Customized values added with each record
-                        _myFavorites.created = DateTime.Now.ToString();
+                        _myFavorites.created = DateTime.Now.ToString("O");
                         _myFavorites.created_ip = this.HttpContext.Connection.RemoteIpAddress.ToString();
 
                         //Clean Data before insertion 
 
-                        _myFavorites.friendname = _myFavorites.friendname.Replace("i", "3");
-                        _myFavorites.friendname = _myFavorites.friendname.Replace("She said,\"Hello!\"", " & quot;");
-
 
                         //Clean Data before insertion 
                         _myFavorites.senderemail = _myFavorites.senderemail.ToLowerInvariant();
-                        _myFavorites.friendemail = _myFavorites.friendemail.ToUpperInvariant();
+
 
                         // DB Related add record
                         _myDbBridge.Favorites.Add(_myFavorites);
